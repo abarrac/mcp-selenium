@@ -282,7 +282,6 @@ Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICEN
 - 🐛 [Reportar Errores](https://github.com/abarrac/mcp-selenium/issues)
 - 💡 [Solicitudes de Características](https://github.com/abarrac/mcp-selenium/discussions)
 - 📧 [Soporte por Email](mailto:abarragancosto@gmail.com)
-- 💬 [Comunidad Discord](https://discord.gg/mcp-selenium)
 
 ---
 
