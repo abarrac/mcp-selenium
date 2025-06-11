@@ -32,10 +32,11 @@ google-chrome --version  # Linux
 ## 🚀 Inicio Rápido
 
 ### Para Usuarios de Claude Desktop
-1. **Instalar:** `curl -sSL https://install.mcp-selenium.com | bash`
-2. **Configurar:** Añadir a la configuración de Claude (ver [Configuración](#-configuración))
-3. **Reiniciar:** Claude Desktop
-4. **Probar:** Pregunta a Claude "toma una captura de pantalla de google.com"
+1. **Instalar y Configurar:** `curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash`
+2. **Reiniciar:** Claude Desktop
+3. **Probar:** Pregunta a Claude "toma una captura de pantalla de google.com"
+
+Para opciones de instalación detalladas, consulta [Configuración](#-configuración).
 
 ## 🧠 ¿Qué es MCP?
 
@@ -123,8 +124,9 @@ Elige uno de estos métodos de instalación:
 
 **Opción A: Instalación Rápida (Recomendada)**
 ```bash
-curl -sSL https://install.mcp-selenium.com | bash
+curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash
 ```
+*Este script maneja automáticamente la configuración del Paso 2. Salta al Paso 3 después de la instalación.*
 
 **Opción B: Descarga Manual**
 ```bash
@@ -144,11 +146,15 @@ mvn clean package
 cp target/mcp-selenium-1.0.0.jar ~/.mcp-selenium/mcp-selenium.jar
 ```
 
-#### Paso 2: Configurar Claude Desktop
+#### Paso 2: Configurar Claude Desktop (Solo Instalación Manual)
+*Omite este paso si usaste la Opción A (script automático) arriba.*
+
 Añade a tu archivo de configuración de Claude Desktop:
 
 **En macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+
 **En Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
 **En Linux:** `~/.config/Claude/claude_desktop_config.json`
 
 ```json
@@ -227,7 +233,7 @@ MCP Selenium soporta todas las estrategias principales de selectores:
 
 ### Opción 1: Script de Instalación Rápida
 ```bash
-curl -sSL https://install.mcp-selenium.com | bash
+curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash
 ```
 
 ### Opción 2: Maven/Gradle
