@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "selenium": {
+      "command": "java",
+      "args": ["-jar", "~/.mcp-selenium/mcp-selenium.jar"],
+      "env": {
+        "SELENIUM_HEADLESS": "false",
+        "SELENIUM_TIMEOUT": "30",
+        "SELENIUM_BROWSER": "chrome"
+      }
+    }
+  }
+}
