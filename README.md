@@ -32,7 +32,9 @@ google-chrome --version  # Linux
 ## 🚀 Quick Start
 
 ### For Claude Desktop Users
-1. **Install & Configure:** `curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash`
+1. **Install & Configure:**
+   - **Windows**: `powershell -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.ps1'))"`
+   - **macOS/Linux**: `curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash`
 2. **Restart:** Claude Desktop
 3. **Test:** Ask Claude to "take a screenshot of google.com"
 
@@ -123,10 +125,17 @@ MCP Selenium Core
 Choose one of these installation methods:
 
 **Option A: Quick Install (Recommended)**
+
+**Windows (PowerShell):**
+```powershell
+powershell -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.ps1'))"
+```
+
+**macOS/Linux (Bash):**
 ```bash
 curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash
 ```
-*This script automatically handles Step 2 configuration. Skip to Step 3 after installation.*
+*These scripts automatically handle Step 2 configuration. Skip to Step 3 after installation.*
 
 **Option B: Manual Download**
 ```bash
@@ -226,27 +235,6 @@ MCP Selenium supports all major selector strategies:
 | Name | `name=value` | `name=username` |
 | Class | `class=value` | `class=btn-primary` |
 | Tag | `tag=value` | `tag=button` |
-
-## 🚢 Installation Options
-
-### Option 1: Quick Install Script
-```bash
-curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash
-```
-
-### Option 2: Maven/Gradle
-```xml
-<dependency>
-    <groupId>io.github.abarrac</groupId>
-    <artifactId>mcp-selenium</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-
-### Option 3: GitHub Releases
-```bash
-wget https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.0.jar
-```
 
 ## 📋 Requirements
 

@@ -32,7 +32,9 @@ google-chrome --version  # Linux
 ## 🚀 Inicio Rápido
 
 ### Para Usuarios de Claude Desktop
-1. **Instalar y Configurar:** `curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash`
+1. **Instalar y Configurar:**
+   - **Windows**: `powershell -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.ps1'))"`
+   - **macOS/Linux**: `curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash`
 2. **Reiniciar:** Claude Desktop
 3. **Probar:** Pregunta a Claude "toma una captura de pantalla de google.com"
 
@@ -123,10 +125,17 @@ MCP Selenium Core
 Elige uno de estos métodos de instalación:
 
 **Opción A: Instalación Rápida (Recomendada)**
+
+**Windows (PowerShell):**
+```powershell
+powershell -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.ps1'))"
+```
+
+**macOS/Linux (Bash):**
 ```bash
 curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash
 ```
-*Este script maneja automáticamente la configuración del Paso 2. Salta al Paso 3 después de la instalación.*
+*Estos scripts manejan automáticamente la configuración del Paso 2. Salta al Paso 3 después de la instalación.*
 
 **Opción B: Descarga Manual**
 ```bash
@@ -228,27 +237,6 @@ MCP Selenium soporta todas las estrategias principales de selectores:
 | Name | `name=value` | `name=username` |
 | Class | `class=value` | `class=btn-primary` |
 | Tag | `tag=value` | `tag=button` |
-
-## 🚢 Opciones de Instalación
-
-### Opción 1: Script de Instalación Rápida
-```bash
-curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash
-```
-
-### Opción 2: Maven/Gradle
-```xml
-<dependency>
-    <groupId>io.github.abarrac</groupId>
-    <artifactId>mcp-selenium</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-
-### Opción 3: Releases de GitHub
-```bash
-wget https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.0.jar
-```
 
 ## 📋 Requisitos
 
