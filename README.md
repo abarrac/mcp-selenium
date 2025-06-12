@@ -1,7 +1,6 @@
 # MCP Selenium - The Industry Standard
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.abarrac/mcp-selenium.svg)](https://search.maven.org/artifact/io.github.abarrac/mcp-selenium)
-[![Build Status](https://github.com/abarrac/mcp-selenium/workflows/CI/badge.svg)](https://github.com/abarrac/mcp-selenium/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java](https://img.shields.io/badge/Java-11%2B-orange.svg)](https://openjdk.java.net/)
 
@@ -33,7 +32,7 @@ google-chrome --version  # Linux
 
 ### For Claude Desktop Users
 1. **Install & Configure:**
-   - **Windows**: `powershell -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.ps1'))"`
+   - **Windows**: `powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.bat' -OutFile 'install.bat'; .\install.bat"`
    - **macOS/Linux**: `curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash`
 2. **Restart:** Claude Desktop
 3. **Test:** Ask Claude to "take a screenshot of google.com"
@@ -126,12 +125,12 @@ Choose one of these installation methods:
 
 **Option A: Quick Install (Recommended)**
 
-**Windows (PowerShell):**
+**Windows:**
 ```powershell
-powershell -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.ps1'))"
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.bat' -OutFile 'install.bat'; .\install.bat"
 ```
 
-**macOS/Linux (Bash):**
+**macOS/Linux:**
 ```bash
 curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash
 ```
