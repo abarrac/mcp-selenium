@@ -9,10 +9,7 @@ echo "🚀 Installing MCP Selenium..."
 
 # Check if Java is installed
 if ! command -v java &> /dev/null; then
-    echo "❌ Java is not installed. Please install Java 11+ first:"
-    echo "   macOS: brew install openjdk@11"
-    echo "   Ubuntu: sudo apt install openjdk-11-jdk"
-    echo "   Or download from: https://adoptium.net/"
+    echo "❌ Java is not installed. Please install Java 11+ first"
     exit 1
 fi
 
@@ -32,7 +29,7 @@ mkdir -p "$INSTALL_DIR"
 echo "📦 Downloading MCP Selenium..."
 
 # Download the latest release
-JAR_URL="https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.0.jar"
+JAR_URL="https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.1.jar"
 JAR_PATH="$INSTALL_DIR/mcp-selenium.jar"
 
 # Download the JAR file
@@ -60,8 +57,11 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     CONFIG_DIR="$HOME/.config/Claude"
     OS_NAME="Linux"
 elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
+    # Windows (Git Bash, MSYS2, Cygwin)
     CONFIG_DIR="$APPDATA/Claude"
     OS_NAME="Windows"
+    # Convert Windows path to Unix style for this script
+    CONFIG_DIR=$(cygpath -u "$CONFIG_DIR" 2>/dev/null || echo "$CONFIG_DIR")
 else
     CONFIG_DIR="$HOME/.config/Claude"
     OS_NAME="Unknown"
@@ -80,14 +80,37 @@ if [ -f "$CONFIG_FILE" ]; then
     echo "⚠️  Claude Desktop config already exists."
     echo "   Please manually add MCP Selenium to: $CONFIG_FILE"
     echo ""
-    echo "   Add this configuration:"
-    echo '   "selenium": {'
-    echo '     "command": "java",'
-    echo '     "args": ["-jar", "'"$JAR_PATH"'"]'
-    echo '   }'
+    echo "   Add this configuration to the mcpServers section:"
+    if [[ "$OS_NAME" == "Windows" ]]; then
+        # For Windows, use escaped backslashes in JSON
+        WIN_JAR_PATH=$(echo "$JAR_PATH" | sed 's|/|\\\\|g')
+        echo '   "selenium": {'
+        echo '     "command": "java",'
+        echo "     \"args\": [\"-jar\", \"$WIN_JAR_PATH\"]"
+        echo '   }'
+    else
+        echo '   "selenium": {'
+        echo '     "command": "java",'
+        echo '     "args": ["-jar", "'"$JAR_PATH"'"]'
+        echo '   }'
+    fi
 else
     echo "📝 Creating Claude Desktop config..."
-    cat > "$CONFIG_FILE" << EOF
+    if [[ "$OS_NAME" == "Windows" ]]; then
+        # For Windows, escape backslashes for JSON
+        WIN_JAR_PATH=$(echo "$JAR_PATH" | sed 's|/|\\\\|g')
+        cat > "$CONFIG_FILE" << EOF
+{
+  "mcpServers": {
+    "selenium": {
+      "command": "java",
+      "args": ["-jar", "$WIN_JAR_PATH"]
+    }
+  }
+}
+EOF
+    else
+        cat > "$CONFIG_FILE" << EOF
 {
   "mcpServers": {
     "selenium": {
@@ -97,6 +120,7 @@ else
   }
 }
 EOF
+    fi
     echo "✅ Config created at: $CONFIG_FILE"
 fi
 
@@ -105,6 +129,6 @@ echo "🎉 Installation completed!"
 echo ""
 echo "Next steps:"
 echo "1. Restart Claude Desktop"
-echo "2. Test with: 'Take a screenshot of google.com'"
+echo "2. Test with: 'Using selenium MCP tools, navigate to google.com and take a screenshot'"
 echo ""
 echo "For support, visit: https://github.com/abarrac/mcp-selenium"
