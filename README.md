@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java](https://img.shields.io/badge/Java-11%2B-orange.svg)](https://openjdk.java.net/)
 
-> The professional-grade Selenium WebDriver MCP server for AI agents and automation tools, trusted by developers worldwide.
+> The professional-grade Selenium WebDriver MCP server for AI agents and automation tools.
 
 MCP Selenium provides a comprehensive Model Context Protocol (MCP) implementation for browser automation, making it effortless for **any AI agent or automation tool** to interact with web applications. Built with enterprise-grade reliability and performance in mind.
 
@@ -13,7 +13,7 @@ MCP Selenium provides a comprehensive Model Context Protocol (MCP) implementatio
 Before installing MCP Selenium, ensure you have:
 
 - **Java 11+** 
-- **Chrome Browser** - [Download here](https://www.google.com/chrome/) (recommended)
+- **Chrome Browser** - [Download here](https://www.google.com/chrome/)
 - **Claude Desktop** - [Download here](https://claude.ai/download) (for Claude integration)
 
 ### Quick Check
@@ -35,7 +35,7 @@ google-chrome --version  # Linux
    - **Windows**: `powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.bat' -OutFile 'install.bat'; .\install.bat"`
    - **macOS/Linux**: `curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh | bash`
 2. **Restart:** Claude Desktop
-3. **Test:** Ask Claude to "take a screenshot of google.com"
+3. **Test:** Ask Claude to "using selenium MCP tools, navigate to google.com and take a screenshot"
 
 For detailed installation options, see [Configuration](#-configuration).
 
@@ -139,11 +139,11 @@ curl -sSL https://raw.githubusercontent.com/abarrac/mcp-selenium/main/install.sh
 **Option B: Manual Download**
 ```bash
 # Download the latest release
-wget https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.0.jar
+wget https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.1.jar
 
 # Move to a permanent location
 mkdir -p ~/.mcp-selenium
-mv mcp-selenium-1.0.0.jar ~/.mcp-selenium/mcp-selenium.jar
+mv mcp-selenium-1.0.1.jar ~/.mcp-selenium/mcp-selenium.jar
 ```
 
 **Option C: Build from Source**
@@ -151,7 +151,7 @@ mv mcp-selenium-1.0.0.jar ~/.mcp-selenium/mcp-selenium.jar
 git clone https://github.com/abarrac/mcp-selenium.git
 cd mcp-selenium
 mvn clean package
-cp target/mcp-selenium-1.0.0.jar ~/.mcp-selenium/mcp-selenium.jar
+cp target/mcp-selenium-1.0.1.jar ~/.mcp-selenium/mcp-selenium.jar
 ```
 
 #### Step 2: Configure Claude Desktop (Manual Installation Only)
@@ -180,7 +180,7 @@ Restart Claude Desktop for the changes to take effect.
 #### Step 4: Verify Installation
 Open Claude Desktop and try asking:
 ```
-"Take a screenshot of google.com"
+"Take a screenshot of google.com using selenium MCP tools"
 ```
 
 If you see browser automation happening, you're all set! 🎉

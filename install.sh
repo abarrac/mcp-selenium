@@ -29,7 +29,7 @@ mkdir -p "$INSTALL_DIR"
 echo "📦 Downloading MCP Selenium..."
 
 # Download the latest release
-JAR_URL="https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.0.jar"
+JAR_URL="https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.1.jar"
 JAR_PATH="$INSTALL_DIR/mcp-selenium.jar"
 
 # Download the JAR file
@@ -129,6 +129,6 @@ echo "🎉 Installation completed!"
 echo ""
 echo "Next steps:"
 echo "1. Restart Claude Desktop"
-echo "2. Test with: 'Take a screenshot of google.com'"
+echo "2. Test with: 'Using selenium MCP tools, navigate to google.com and take a screenshot'"
 echo ""
 echo "For support, visit: https://github.com/abarrac/mcp-selenium"

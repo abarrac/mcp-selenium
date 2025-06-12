@@ -8,7 +8,7 @@ REM Check if Java is installed
 java -version >nul 2>&1
 if errorlevel 1 (
     echo ERROR: Java is not installed or not in PATH
-    echo Please install Java 11+ from: https://adoptium.net/
+    echo Please install Java 11+
     echo.
     pause
     exit /b 1
@@ -24,7 +24,7 @@ if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
 echo Downloading MCP Selenium...
 
 REM Download using PowerShell (built into Windows)
-powershell -Command "try { Invoke-WebRequest -Uri 'https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.0.jar' -OutFile '%INSTALL_DIR%\mcp-selenium.jar' -UseBasicParsing; Write-Host 'Download completed' } catch { Write-Host 'Download failed'; exit 1 }"
+powershell -Command "try { Invoke-WebRequest -Uri 'https://github.com/abarrac/mcp-selenium/releases/latest/download/mcp-selenium-1.0.1.jar' -OutFile '%INSTALL_DIR%\mcp-selenium.jar' -UseBasicParsing; Write-Host 'Download completed' } catch { Write-Host 'Download failed'; exit 1 }"
 
 if not exist "%INSTALL_DIR%\mcp-selenium.jar" (
     echo ERROR: Failed to download MCP Selenium JAR
@@ -80,7 +80,7 @@ echo Installation completed!
 echo.
 echo Next steps:
 echo 1. Restart Claude Desktop
-echo 2. Test with: 'Take a screenshot of google.com'
+echo 2. Test with: 'Using selenium MCP tools, navigate to google.com and take a screenshot'
 echo.
 echo For support, visit: https://github.com/abarrac/mcp-selenium
 echo.
