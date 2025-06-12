@@ -4,13 +4,21 @@ All notable changes to MCP Selenium will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-06-12
+
+### Added
+- Added Windows installer (`install.bat`)
+- Fixed path handling in bash script for Windows
+- Proper JSON escaping for Windows paths
+- Updated documentation with platform-specific instructions
+
 ## [1.0.0] - 2025-06-11
 
 ### Added
 
 **Core MCP Server**
 
-- Full MCP 2024-11-05 protocol implementation
+- Full MCP protocol implementation
 - JSON-RPC communication over stdin/stdout
 - Comprehensive tool discovery and validation
 - Graceful error handling and recovery
